@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/PepNovo.svg)](https://travis-ci.org/BioDocker/PepNovo)
-
 PepNovo+
 =====
 De novo sequencing of low precision MS/MS data
