@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/SearchGUI.svg)](https://travis-ci.org/BioDocker/SearchGUI)
-
 SearchGUI
 =====
 graphical user interface for proteomics identification search engines
