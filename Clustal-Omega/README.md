@@ -42,9 +42,7 @@ and its usage. For more information about the software usage, please refer to th
 
 licence
 -------
-the license present in this repository refers only to the instructions necessary to create the containers, we do not provide or
-apply this repository license over the containerized software. Each software is distributed with a specific
-license selected by the developer group. For more information on that, please check the respective publication.
+the license present in this repository refers only to the instructions necessary to create the containers, we do not provide or apply this repository license over the containerized software. Each software is distributed with a specific license selected by the developer group. For more information on that, please check the respective publication.
 
 
 about
