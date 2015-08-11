@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/Novor.svg)](https://travis-ci.org/BioDocker/Novor)
-
 Novor
 =====
 Real-Time peptide de novo sequencing
