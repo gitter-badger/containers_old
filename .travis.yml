@@ -1,0 +1,57 @@
+sudo: true
+
+install:
+  - curl -sLo - http://j.mp/install-travis-docker | sh -xe
+
+script:
+
+  #BLAST
+  - ./run 'docker build -t test BLAST/2.2.28-2/.'
+
+  #Clustal-Omega
+  - ./run 'docker build -t test Clustal-Omega/1.2.1-1/.'
+
+  #Comet
+  - ./run 'docker build -t test Comet/2014011/.'
+  - ./run 'docker build -t test Comet/2015012/.'
+  - ./run 'docker build -t test Comet/2015020/.'
+
+  #Crux
+  - ./run 'docker build -t test Crux/2.1/.'
+
+  #EMBOSS
+  - ./run 'docker build -t test EMBOSS/.'
+
+  #MSAmanda
+  - ./run 'docker build -t test MSAmanda/1.0.0.5242/.'
+
+  #MSGFq
+  - ./run 'docker build -t test MSGFq/9949/.'
+
+  #Novor
+  - ./run 'docker build -t test Novor/1b/.'
+
+  #OpenMS
+  - ./run 'docker build -t test OpenMS/1.11.1-3/.'
+
+  #PepNovo+
+  - ./run 'docker build -t test PepNovo+/20120423/.'
+
+  #Rstudio-Proteomics
+  - ./run 'docker build -t test Rstudio-Proteomics/.'
+
+  #SearchGUI
+  - ./run 'docker build -t test SearchGUI/1.30.1/.'
+
+  #denovoGUI
+  - ./run 'docker build -t test denovoGUI/1.4.12/.'
+  - ./run 'docker build -t test denovoGUI/1.5.2/.'
+
+  #TOPPAS
+  - ./run 'docker build -t test TOPPAS/1.11.1-3/.'
+
+  #TPP
+  - ./run 'docker build -t test TPP/4.8/.'
+
+  #Tandem
+  - ./run 'docker build -t test Tandem/10-12-01-1/.'
