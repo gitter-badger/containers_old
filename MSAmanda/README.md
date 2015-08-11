@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/MSAmanda.svg)](https://travis-ci.org/BioDocker/MSAmanda)
-
 MSAmanda
 =====
 scoring system to identify peptides out of tandem mass spectrometry
