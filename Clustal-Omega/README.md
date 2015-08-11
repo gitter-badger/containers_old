@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/Clustalo.svg)](https://travis-ci.org/BioDocker/Clustalo)
-
 Clustal Omega
 =====
 General purpose multiple sequence alignment program for proteins
