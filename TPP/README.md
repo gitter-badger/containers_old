@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/TPP.svg)](https://travis-ci.org/BioDocker/TPP)
-
 TPP
 =====
 a collection of integrated tools for MS/MS proteomics
