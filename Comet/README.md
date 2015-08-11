@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/Comet.svg)](https://travis-ci.org/BioDocker/Comet)
-
 Comet
 =====
 an open source tandem mass spectrometry sequence database search tool
