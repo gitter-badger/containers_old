@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/NCBI-BLAST.svg)](https://travis-ci.org/BioDocker/NCBI-BLAST)
-
 NCBI BLAST+
 =====
 Basic Local Alignment Search Tool
