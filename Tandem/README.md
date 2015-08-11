@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/Tandem.svg)](https://travis-ci.org/BioDocker/Tandem)
-
 X! Tandem
 =====
 open source is software that can match tandem mass spectra with peptide sequences
