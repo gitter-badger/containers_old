@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/Crux.svg)](https://travis-ci.org/BioDocker/Crux)
-
 Crux
 =====
 a software toolkit for tandem mass spectrometry analysis
