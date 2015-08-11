@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/EMBOSS.svg?branch=master)](https://travis-ci.org/BioDocker/EMBOSS)
-
 EMBOSS
 =====
 graphical user interface for de novo sequencing of tandem mass spectra
