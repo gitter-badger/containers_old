@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/TOPPAS.svg)](https://travis-ci.org/BioDocker/TOPPAS)
-
 TOPPAS
 =====
 a graphical workflow editor for the analysis of high-throughput proteomics data.
