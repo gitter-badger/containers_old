@@ -14,22 +14,16 @@ ___.   .__           .___             __
 Contents
 ----------
 
-1. [Essentials](#1-essentials)  
- 1.1. [Objectives](#11-objectives)    
- 1.2. [What is BioDocker](#12-what-is-biodocker)  
-* [Containers](#2-containers)  
-  2.1. [What is a container?](#21-what-is-a-container)  
-  2.2. [How to search for a container](#22-how-to-search-for-a-container)  
-  2.3. [What do I need to use a container?](#23-what-do-i-need-to-use-a-container)   
-  2.4. [How do I use a container?](#24-how-do-i-use-a-container)  
-  2.5. [How to build a BioDocker container](#25-how-to-build-a-biodocker-container)  
-* [Developing containers](#3-developing-containers)  
-  3.1. [What do I need to develop?](#31-what-do-i-need-to-develop)  
-  3.2. [How to create a container?](#32-how-to-create-a-container)  
-* [Support](#4-support)  
-  4.1  [Get involved](#41-get-involved)  
-  4.2. [Contact](#42-contact)   
-* [License](#5-license)  
+1. [Containers](#1-containers)  
+  1.1. [What is a container?](#11-what-is-a-container)  
+  1.2. [How to search for a container](#12-how-to-search-for-a-container)  
+  1.3. [What do I need to use a container?](#13-what-do-i-need-to-use-a-container)   
+  1.4. [How do I use a container?](#14-how-do-i-use-a-container)  
+  1.5. [How to build a BioDocker container](#15-how-to-build-a-biodocker-container)  
+* [Developing containers](#2-developing-containers)  
+  2.1. [What do I need to develop?](#21-what-do-i-need-to-develop)  
+  2.2. [How to create a container?](#22-how-to-create-a-container)  
+* [License](#3-license)  
 
 1. Essentials
 --------------
