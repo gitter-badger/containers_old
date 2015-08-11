@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/DenovoGUI.svg?branch=master)](https://travis-ci.org/BioDocker/DenovoGUI)
-
 Denovogui
 =====
 graphical user interface for de novo sequencing of tandem mass spectra
