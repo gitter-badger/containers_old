@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/OpenMS.svg)](https://travis-ci.org/BioDocker/OpenMS)
-
 OpenMS
 =====
 C++ libraries ans tools for MS/MS data analysis
