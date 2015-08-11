@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/Rstudio-Proteomcis.svg)](https://travis-ci.org/BioDocker/Rstudio-Proteomcis)
-
 Rstudio-Proteomics
 =====
 Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.
