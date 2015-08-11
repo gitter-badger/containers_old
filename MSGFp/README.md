@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/BioDocker/MSGFPlus.svg)](https://travis-ci.org/BioDocker/MSGFPlus)
-
 MSGFPlus
 =====
 MS/MS database search tool
