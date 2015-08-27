@@ -4,19 +4,19 @@
 # Version:          1
 # Software:         NCBI BLAST+
 # Software Version: 2.2.28-2
-# Base Image:       Ubuntu
+# Base Image:       biodocker:latest
+# Build Cmd:        docker build -t biodckr/ncbi-blast 2.2.28-2/.
+# Pull Cmd:         docker pull biodckr/ncbi-blast
+# Run Cmd:          docker run biodckr/ncbi-blast <options> <files>
 #################################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu:latest
+FROM biodckr/biodocker:latest
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ######################
-
-# Update
-RUN apt-get update -y && apt-get upgrade -y
 
 # Install BLAST toolkit
 RUN apt-get install -y ncbi-blast+=2.2.28-2
@@ -25,3 +25,4 @@ RUN apt-get install -y ncbi-blast+=2.2.28-2
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015

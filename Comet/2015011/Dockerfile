@@ -4,7 +4,10 @@
 # Version:          1
 # Software:         Comet
 # Software Version: 2015011
-# Base Image:       BioDocker
+# Base Image:       biodocker:latest
+# Build Cmd:        docker build -t biodckr/comet 2015011/.
+# Pull Cmd:         docker pull biodckr/comet
+# Run Cmd:          docker run biodckr/comet
 #################################################################
 
 # Set the base image to Ubuntu
@@ -14,10 +17,6 @@ FROM biodckr/biodocker:latest
 ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ######################
-
-RUN apt-get update -y && apt-get upgrade -y
-
-RUN apt-get install zip -y
 
 RUN wget https://github.com/BioDocker/software-archive/releases/download/Comet/comet_binaries_2015011.zip
 

@@ -3,14 +3,14 @@ Clustal Omega
 General purpose multiple sequence alignment program for proteins
 
 
-installed software
+available software
 --------
 `clustalo 1.2.1-1`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/clustalo .`
+`docker build -t biodckr/clustalo .`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/clustalo <options> <files>`
+`docker run biodckr/clustalo <options> <files>`
 
 
 software website

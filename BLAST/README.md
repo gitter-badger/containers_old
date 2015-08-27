@@ -3,14 +3,14 @@ NCBI BLAST+
 Basic Local Alignment Search Tool
 
 
-installed software
+available software
 --------
 `ncbi-blast+ 2.2.28-2`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/ncbi-blast 2.2.28-2/.`
+`docker build -t biodckr/ncbi-blast 2.2.28-2/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/ncbi-blast <options> <files>`
+`docker run biodckr/ncbi-blast <options> <files>`
 
 
 software website

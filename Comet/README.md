@@ -3,16 +3,16 @@ Comet
 an open source tandem mass spectrometry sequence database search tool
 
 
-installed software
+available software
 --------
-`comet 2014011`
+`comet 2015011`
 `comet 2015012`
 `comet 2015020`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/comet 2015020/.`
+`docker build -t biodckr/comet 2015020/.`
 
 
 how to download and install
@@ -22,7 +22,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/comet <options> <files>`
+`docker run biodckr/comet <options> <files>`
 
 
 software website
