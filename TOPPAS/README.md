@@ -10,7 +10,7 @@ available software
 
 how to build
 ------------
-`sudo docker build -t biodckr/toppas 1.11.1-3/.`
+`docker build -t biodckr/toppas 1.11.1-3/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/toppas TOPPAS `
+`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/toppas TOPPAS `
 
 
 software website

@@ -5,13 +5,12 @@ graphical user interface for de novo sequencing of tandem mass spectra
 
 available software
 --------
-`denovogui 1.4.12`
 `denovogui 1.5.2`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/denovogui 1.4.12/.`
+`docker build -t biodckr/denovogui 1.4.12/.`
 
 
 how to download and install
@@ -21,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix denovogui`
+`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix denovogui`
 
 
 software website

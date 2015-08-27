@@ -4,18 +4,19 @@
 # Version:					1
 # Software:					OpenMS
 # Software Version:	1.11.1-3
-# Base Image:				Ubuntu
+# Base Image:       biodckr/biodocker:latest
+# Build Cmd:        docker build -t biodckr/toppas 1.11.1-3/.
+# Pull Cmd:         docker pull biodckr/toppas
+# Run Cmd:          docker run biodckr/toppas
 #################################################################
 
 # Set the base image
-FROM ubuntu:latest
+FROM biodckr/biodocker:latest
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ###########################
-
-RUN apt-get -y update && apt-get -y upgrade
 
 RUN apt-get install -y \
 	openjdk-7-jre \
@@ -39,8 +40,8 @@ ENV HOME /home/developer
 
 WORKDIR /usr/bin/
 
-
 ##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015

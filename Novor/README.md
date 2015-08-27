@@ -1,6 +1,6 @@
 Novor
 =====
-Real-Time peptide de novo sequencing
+real-time peptide de novo sequencing
 
 
 available software
@@ -10,7 +10,7 @@ available software
 
 how to build
 ------------
-`sudo docker build -t biodckr/novor 1b/.`
+`docker build -t biodckr/novor 1b/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/novor <options> <files>`
+`docker run biodckr/novor`
 
 
 software website

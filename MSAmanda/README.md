@@ -10,7 +10,7 @@ available software
 
 how to build
 ------------
-`sudo docker build -t biodckr/msamanda 1.0.0.4252/.`
+`docker build -t biodckr/msamanda 1.0.0.4252/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/msamanda <options> <files>`
+`docker run biodckr/msamanda`
 
 
 software website

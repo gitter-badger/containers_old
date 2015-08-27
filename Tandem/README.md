@@ -2,14 +2,14 @@ X! Tandem
 =====
 open source is software that can match tandem mass spectra with peptide sequences
 
-installed software
+available software
 --------
 `tandem 10-12-01-1`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/tandem 1012011/.`
+`docker build -t biodckr/tandem 1012011/.`
 
 
 how to download and install
@@ -19,7 +19,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/tandem ./tandem.exe <options> <files>`
+`docker run biodckr/tandem`
 
 
 software website

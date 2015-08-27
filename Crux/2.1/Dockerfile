@@ -7,7 +7,7 @@
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build -t biodckr/crux 2.1/.
 # Pull Cmd:         docker pull biodckr/crux
-# Run Cmd:          docker run biodckr/crux
+# Run Cmd:          docker run biodckr/crux [./crux ./xlink-assign-ions ./xlink-score-spectrum]
 #################################################################
 
 # Set the base image
@@ -21,6 +21,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN wget https://github.com/BioDocker/software-archive/releases/download/Crux/crux-2.1.Linux.x86_64.zip
 
 RUN unzip crux-2.1.Linux.x86_64.zip
+
+WORKDIR /crux-2.1.Linux.x86_64/bin/
 
 ##################### INSTALLATION END ##########################
 

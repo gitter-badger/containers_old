@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`docker run biodckr/crux [crux xlink-assign-ions xlink-score-spectrum]`
+`docker run biodckr/crux [./crux ./xlink-assign-ions ./xlink-score-spectrum]`
 
 
 software website

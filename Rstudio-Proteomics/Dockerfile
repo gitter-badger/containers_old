@@ -1,21 +1,26 @@
+
 #################################################################
 # Dockerfile
 #
 # Version:          1
 # Software:         Rstudio
 # Software Version: ?
-# Base Image:       bioconductor
+# Base Image:       bioconductor/release_core
+# Build Cmd:        docker build -t biodckr/rstudio .
+# Pull Cmd:         docker pull biodckr/rstudio
+# Run Cmd:          docker run biodckr/rstudio
 #################################################################
 
+# Set the base image
 FROM bioconductor/release_core
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
+# Set noninterative mode
+ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ###########################
 
 # nuke cache dirs before installing pkgs; tip from Dirk E fixes broken img
 RUN  rm -f /var/lib/dpkg/available && rm -rf  /var/cache/apt/*
-
 
 RUN apt-get install -y -t unstable --force-yes libfreetype6
 
@@ -31,20 +36,16 @@ RUN apt-get update && \
     libgsl0ldbl \
     openjdk-8-jdk
 
-
-
 RUN R CMD javareconf
 
 ENV NETCDF_INCLUDE=/usr/include
 
 ADD startx.sh /tmp/
 
-
 ADD installFromBiocViews.R /tmp/
 
 # invalidates cache every 24 hours
 ADD http://master.bioconductor.org/todays-date /tmp/
-
 
 RUN cd /tmp && \
     ./startx.sh && \

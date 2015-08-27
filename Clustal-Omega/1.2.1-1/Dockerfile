@@ -10,7 +10,7 @@
 # Run Cmd:          docker run biodckr/clustalo
 #################################################################
 
-# Set the base image to Debian
+# Set the base image to biodckr/biodocker
 FROM biodckr/biodocker:latest
 
 # Set noninterative mode

@@ -10,7 +10,7 @@ available software
 
 how to build
 ------------
-`sudo docker build -t biodckr/openms 1.11.1-3/.`
+`docker build -t biodckr/openms 1.11.1-3/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/openms <program> <files> `
+`docker run biodckr/openms`
 
 
 software website

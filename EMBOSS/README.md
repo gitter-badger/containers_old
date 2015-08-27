@@ -10,7 +10,7 @@ available software
 
 how to build
 ------------
-`sudo docker build -t biodckr/emboss .`
+`docker build -t biodckr/emboss .`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run emboss <program> <options> <files>`
+`docker run emboss`
 
 
 software website

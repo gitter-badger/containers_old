@@ -4,22 +4,21 @@
 # Version:          1
 # Software:         SearchGUI
 # Software Version: 1.30.1
-# Base Image:       Ubuntu
+# Base Image:       biodckr/biodocker:latest
+# Build Cmd:        docker build -t biodckr/searchgui 1.30.1/.
+# Pull Cmd:         docker pull biodckr/searchgui
+# Run Cmd:          docker run biodckr/searchgui
 #################################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu:latest
+FROM biodckr/biodocker:latest
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ###########################
 
-RUN apt-get update -y && apt-get upgrade -y
-
-RUN apt-get install openjdk-7-jre -y \
-    wget
-
+RUN apt-get install openjdk-7-jre -y
 
 #USER developer
 
@@ -39,3 +38,4 @@ WORKDIR /SearchGUI-1.30.1/
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015

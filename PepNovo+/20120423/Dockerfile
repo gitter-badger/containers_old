@@ -4,25 +4,25 @@
 # Version:					1
 # Software:					PepNovo+
 # Software Version:	20120423
-# Base Image:				Ubuntu
+# Base Image:       biodckr/biodocker:latest
+# Build Cmd:        docker build -t biodckr/pepnovo 20120423/.
+# Pull Cmd:         docker pull biodckr/pepnovo
+# Run Cmd:          docker run biodckr/pepnovo
 #################################################################
 
 # Set the base image
-FROM ubuntu:latest
+FROM biodckr/biodocker:latest
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ###########################
 
-RUN apt-get -y update && apt-get -y upgrade
-
 RUN apt-get install -y \
-	zip \
 	build-essential \
 	dos2unix
 
-COPY PepNovo.20120423.zip /
+RUN wget https://github.com/BioDocker/software-archive/releases/download/PepNovo/PepNovo.20120423.zip
 
 RUN unzip PepNovo.20120423.zip -d PepNovo/
 
@@ -44,3 +44,4 @@ ENTRYPOINT ["./PepNovo_bin"]
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015

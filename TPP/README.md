@@ -4,14 +4,14 @@ a collection of integrated tools for MS/MS proteomics
 
 * note: This container only posses the binary files, the web interface is not configurated.
 
-installed software
+available software
 --------
 `tpp 4.8`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/tpp 4.8/.`
+`docker build -t biodckr/tpp 4.8/.`
 
 
 how to download and install
@@ -21,7 +21,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/tpp <program> <options> <files>`
+`docker run biodckr/tpp`
 
 
 software website

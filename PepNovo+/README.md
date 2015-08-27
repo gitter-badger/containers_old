@@ -1,6 +1,6 @@
 PepNovo+
 =====
-De novo sequencing of low precision MS/MS data
+de novo sequencing of low precision MS/MS data
 
 
 installed software
@@ -10,7 +10,7 @@ installed software
 
 how to build
 ------------
-`sudo docker build -t biodckr/pepnovo 20120423/.`
+`docker build -t biodckr/pepnovo 20120423/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/pepnovo <options> <files>`
+`docker run biodckr/pepnovo`
 
 
 software website

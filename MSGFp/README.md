@@ -10,7 +10,7 @@ available software
 
 how to build
 ------------
-`sudo docker build -t biodckr/msgfp 9949/.`
+`docker build -t biodckr/msgfp 9949/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/msgfp <options> <files>`
+`docker run biodckr/msgfp`
 
 
 software website

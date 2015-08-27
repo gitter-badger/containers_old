@@ -10,7 +10,7 @@
 # Run Cmd:          docker run biodckr/comet
 #################################################################
 
-# Set the base image to Ubuntu
+# Set the base image to biodckr/biodocker
 FROM biodckr/biodocker:latest
 
 # Set noninterative mode

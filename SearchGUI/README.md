@@ -3,14 +3,14 @@ SearchGUI
 graphical user interface for proteomics identification search engines
 
 
-installed software
+available software
 --------
 `SearchGUI 1.3.1`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/searchgui 1.30.1/.`
+`docker build -t biodckr/searchgui 1.30.1/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/searchgui`
+`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/searchgui`
 
 
 software website
