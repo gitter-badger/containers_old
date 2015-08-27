@@ -20,11 +20,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN wget https://github.com/BioDocker/software-archive/releases/download/Crux/crux-2.1.Linux.x86_64.zip
 
-RUN unzip crux-2.1.Linux.x86_64.zip -d /crux/
-
-WORKDIR /crux/crux-2.1.Linux.x86_64/bin/
-
-ENTRYPOINT ["crux" "xlink-assign-ions" "xlink-score-spectrum"]
+RUN unzip crux-2.1.Linux.x86_64.zip
 
 ##################### INSTALLATION END ##########################
 

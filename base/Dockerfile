@@ -29,8 +29,7 @@ RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y \
 	zip \
-	wget \
-	supervisor
+	wget
 
 # overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
