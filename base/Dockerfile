@@ -24,5 +24,10 @@ RUN echo '#!/bin/sh' > /usr/sbin/policy-rc.d \
 # enable the universe
 RUN sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
 
+# custom
+RUN apt-get update -y
+RUN apt-get upgrade -y
+RUN apt-get install zip -y
+
 # overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]

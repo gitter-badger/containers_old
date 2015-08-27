@@ -4,11 +4,11 @@
 # Version:          1
 # Software:         Comet
 # Software Version: 2015011
-# Base Image:       Ubuntu
+# Base Image:       BioDocker
 #################################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu:latest
+FROM biodckr/biodocker:latest
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
@@ -17,7 +17,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y && apt-get upgrade -y
 
-RUN apt-get install zip
+RUN apt-get install zip -y
 
 RUN wget https://github.com/BioDocker/software-archive/releases/download/Comet/comet_binaries_2015011.zip
 
