@@ -28,7 +28,7 @@ RUN sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
 RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y \
-	zip
+	zip \
 	wget
 
 # overwrite this with 'CMD []' in a dependent Dockerfile
