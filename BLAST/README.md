@@ -1,6 +1,6 @@
 NCBI BLAST+
 =====
-Basic Local Alignment Search Tool
+basic local alignment search tool
 
 
 available software

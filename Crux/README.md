@@ -3,14 +3,14 @@ Crux
 a software toolkit for tandem mass spectrometry analysis
 
 
-installed software
+available software
 --------
 `crux 2.1`
 
 
 how to build
 ------------
-`sudo docker build -t biodckr/crux 2.1/.`
+`docker build -t biodckr/crux 2.1/.`
 
 
 how to download and install
@@ -20,7 +20,7 @@ how to download and install
 
 how to use
 ------------
-`sudo docker run biodckr/crux [crux xlink-assign-ions xlink-score-spectrum] <options> <files>`
+`docker run biodckr/crux [crux xlink-assign-ions xlink-score-spectrum]`
 
 
 software website

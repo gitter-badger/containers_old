@@ -1,6 +1,6 @@
 Clustal Omega
 =====
-General purpose multiple sequence alignment program for proteins
+general purpose multiple sequence alignment program for proteins
 
 
 available software
