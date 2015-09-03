@@ -30,7 +30,9 @@ RUN apt-get install -y \
 # apt clean
 RUN apt-get clean && \
     apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    mkdir /data /config
+
 
 # ADD BIODOCKER USER WITH PASSWORD BIODOCKER
 RUN useradd --create-home --shell /bin/bash --user-group --uid 1001 --groups sudo,fuse biodocker && \
