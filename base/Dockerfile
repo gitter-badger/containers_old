@@ -9,7 +9,7 @@
 # Pull Cmd:         docker pull biodckr/biodocker
 # Run Cmd:          docker run biodckr/biodocker bash
 #################################################################
-# Source image
+# Source Image
 FROM ubuntu:14.04.3
 
 # File Author / Maintainer
@@ -40,16 +40,18 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir /data /config
 
-
-# ADD BIODOCKER USER WITH PASSWORD BIODOCKER
+# Add biodocker user with password biodocker
 RUN useradd --create-home --shell /bin/bash --user-group --uid 1001 --groups sudo,fuse biodocker && \
     echo `echo "biodocker\nbiodocker\n" | passwd biodocker`
 
-# CHANGE USER
+# Change user
 USER biodocker
 
-# CREATE HOME BIN FOLDER
-RUN mkdir /home/biodocker/bin && export PATH=$PATH:/home/biodocker/bin && echo PATH $PATH
+# Create $HOME/bin folder
+RUN mkdir /home/biodocker/bin
 
-# overwrite this with 'CMD []' in a dependent Dockerfile
+# Add $HOME/bin to path
+ENV PATH=$PATH:/home/biodocker/bin
+
+# Overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
