@@ -23,9 +23,16 @@ RUN apt-get clean all && apt-get update && apt-get upgrade -y
 
 # apt install
 RUN apt-get install -y \
-        zip \
-        wget \
-        fuse
+        curl       \
+        fuse       \
+        git        \
+        wget       \
+        zip
+
+#        subversion \
+#        mercurial  \
+#        cvs        \
+
 
 # apt clean
 RUN apt-get clean && \
