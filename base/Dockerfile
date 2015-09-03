@@ -41,5 +41,8 @@ RUN useradd --create-home --shell /bin/bash --user-group --uid 1001 --groups sud
 # CHANGE USER
 USER biodocker
 
+# CREATE HOME BIN FOLDER
+RUN mkdir /home/biodocker/bin && export PATH=$PATH:/home/biodocker/bin && echo PATH $PATH
+
 # overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
