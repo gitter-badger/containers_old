@@ -13,10 +13,6 @@
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
-
 ################## BEGIN INSTALLATION ###########################
 
 USER root
@@ -38,3 +34,7 @@ WORKDIR /data
 CMD ["MSAmanda"]
 
 ##################### INSTALLATION END ##########################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015

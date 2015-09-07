@@ -12,11 +12,10 @@
 # Source Image
 FROM ubuntu:14.04.3
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
+
+################## BEGIN INSTALLATION ######################
 
 # apt update
 RUN apt-get clean all && apt-get update && apt-get upgrade -y
@@ -56,3 +55,8 @@ ENV HOME=/home/biodocker
 
 # Overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
+
+##################### INSTALLATION END #####################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

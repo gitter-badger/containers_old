@@ -13,10 +13,6 @@
 # Set the base image
 FROM bioconductor/release_core
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Adapted from the original work of dtenenba@fredhutch.org (rocker-org)
-
 ################## BEGIN INSTALLATION ###########################
 
 USER root
@@ -56,3 +52,7 @@ RUN cd /tmp && \
 USER biodocker
 
 ##################### INSTALLATION END ##########################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Adapted from the original work of dtenenba@fredhutch.org (rocker-org)

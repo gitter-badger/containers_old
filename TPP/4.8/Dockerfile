@@ -13,10 +13,6 @@
 # Set the base image to Ubuntu
 FROM biodckr/biodocker:latest
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
-
 ################## BEGIN INSTALLATION ######################
 
 RUN ZIP=tpp-4.8.0.zip && \
@@ -33,3 +29,7 @@ WORKDIR /data
 CMD ["tandem"]
 
 ##################### INSTALLATION END #####################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015

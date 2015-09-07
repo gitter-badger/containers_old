@@ -13,9 +13,6 @@
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-
 ################## BEGIN INSTALLATION ###########################
 
 USER root
@@ -56,3 +53,6 @@ RUN ZIP=MSGFPlus_9949.zip && \
 WORKDIR /data
 
 ##################### INSTALLATION END ##########################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

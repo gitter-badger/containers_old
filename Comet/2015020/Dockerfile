@@ -13,10 +13,6 @@
 # Set the base image to biodckr/biodocker
 FROM biodckr/biodocker:latest
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
-
 ################## BEGIN INSTALLATION ######################
 
 RUN ZIP=comet_binaries_2015020.zip && \
@@ -31,3 +27,7 @@ WORKDIR /data
 CMD ["comet"]
 
 ##################### INSTALLATION END #####################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015
