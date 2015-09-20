@@ -5,26 +5,32 @@
 # Software:         Novor
 # Software Version: 1b
 # Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/novor 1b/.
+# Build Cmd:        docker build --rm -t biodckr/novor 1b/.
 # Pull Cmd:         docker pull biodckr/novor
-# Run Cmd:          docker run biodckr/novor
+# Run Cmd:          docker run --rm  biodckr/novor
 #################################################################
 
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ###########################
 
-RUN apt-get install -y openjdk-7-jre
+USER root
 
-RUN wget https://github.com/BioDocker/software-archive/releases/download/NovoR/novor_academic_latest.zip
+RUN apt-get update && apt-get install -y openjdk-7-jre
 
-RUN unzip novor_academic_latest.zip -d /novor-bin/
+USER biodocker
 
-WORKDIR /novor-bin/novor_v1b/
+RUN ZIP=novor_academic_latest.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/NovoR/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
+    rm /tmp/$ZIP && \
+    bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/novor_v1b/lib/novor.jar $@" > /home/biodocker/bin/novor' && \
+    chmod +x /home/biodocker/bin/novor
+
+WORKDIR /data
+
+CMD ["novor"]
 
 ##################### INSTALLATION END ##########################
 

@@ -1,34 +1,36 @@
 #################################################################
 # Dockerfile
 #
-# Version:					1
-# Software:					X!Tandem
-# Software Version:	10-12-01-1
+# Version:          1
+# Software:         X!Tandem
+# Software Version: 10-12-01-1
 # Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/tandem 10-12-01-1/.
+# Build Cmd:        docker build --rm -t biodckr/tandem 10-12-01-1/.
 # Pull Cmd:         docker pull biodckr/tandem
-# Run Cmd:          docker run biodckr/tandem
+# Run Cmd:          docker run --rm biodckr/tandem
 #################################################################
 
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ###########################
 
-RUN apt-get -y install build-essential
+USER root
 
-RUN wget https://github.com/BioDocker/software-archive/releases/download/X!Tandem/tandem-linux-10-12-01-1.zip
+RUN apt-get update && apt-get -y install build-essential
 
-RUN unzip tandem-linux-10-12-01-1.zip
+USER biodocker
 
-WORKDIR /tandem-linux-10-12-01-1/bin/
+RUN ZIP=tandem-linux-10-12-01-1.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/X!Tandem/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
+    rm /tmp/$ZIP && \
+    bash -c 'echo -e "#!/bin/bash\n/home/biodocker/bin/tandem-linux-10-12-01-1/bin/tandem.exe $@"' > /home/biodocker/bin/tandem && \
+    chmod 755 /home/biodocker/bin/tandem
 
-RUN chmod 755 tandem.exe
+WORKDIR /data
 
-ENTRYPOINT ["./tandem.exe"]
+CMD ["tandem"]
 
 ##################### INSTALLATION END ##########################
 
