@@ -1,44 +1,37 @@
 #################################################################
 # Dockerfile
 #
-# Version:					1
-# Software:					denovogui
-# Software Version:	1.5.2
+# Version:          1
+# Software:         denovogui
+# Software Version: 1.5.2
 # Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/denovogui 1.5.2/.
+# Build Cmd:        docker build --rm -t biodckr/denovogui 1.5.2/.
 # Pull Cmd:         docker pull biodckr/denovogui
-# Run Cmd:          docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix denovogui
+# Run Cmd:          docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/denovogui
 #################################################################
 
 # Set the base image to biodckr/biodocker
 FROM biodckr/biodocker:latest
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ######################
 
-RUN apt-get install openjdk-7-jre -y
+USER root
 
-RUN wget https://github.com/BioDocker/software-archive/releases/download/deNovoGUI/DeNovoGUI-1.5.2.zip
+RUN apt-get update && apt-get install openjdk-7-jre -y && \
+    echo "biodocker ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/biodocker
 
-RUN unzip DeNovoGUI-1.5.2.zip
+USER biodocker
 
-RUN export uid=1000 gid=1000 && \
-    mkdir -p /home/developer && \
-    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
-    echo "developer:x:${uid}:" >> /etc/group && \
-    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer && \
-    chmod 0440 /etc/sudoers.d/developer && \
-    chown ${uid}:${gid} -R /home/developer
+RUN ZIP=DeNovoGUI-1.5.2.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/deNovoGUI/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
+    rm /tmp/$ZIP && \
+    bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/DeNovoGUI-1.5.2/DeNovoGUI-1.5.2.jar $@" > /home/biodocker/bin/denovogui' && \
+    chmod +x /home/biodocker/bin/denovogui
 
-USER developer
+WORKDIR /data
 
-ENV HOME /home/developer
-
-WORKDIR /DeNovoGUI-1.5.2/
-
-CMD ["java", "-jar", "DeNovoGUI-1.5.2.jar"]
+CMD ["denovogui"]
 
 ##################### INSTALLATION END #####################
 

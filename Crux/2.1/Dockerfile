@@ -1,28 +1,29 @@
 #################################################################
 # Dockerfile
 #
-# Version:			     1
-# Software:		     	Crux
-# Software Version:	2.1
+# Version:          1
+# Software:         Crux
+# Software Version: 2.1
 # Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/crux 2.1/.
+# Build Cmd:        docker build --rm -t biodckr/crux 2.1/.
 # Pull Cmd:         docker pull biodckr/crux
-# Run Cmd:          docker run biodckr/crux [./crux ./xlink-assign-ions ./xlink-score-spectrum]
+# Run Cmd:          docker run --rm biodckr/crux [./crux ./xlink-assign-ions ./xlink-score-spectrum]
 #################################################################
 
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ###########################
 
-RUN wget https://github.com/BioDocker/software-archive/releases/download/Crux/crux-2.1.Linux.x86_64.zip
+RUN ZIP=crux-2.1.Linux.x86_64.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/Crux/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
+    rm /tmp/$ZIP && \
+    ln -sv /home/biodocker/bin/*/bin/* /home/biodocker/bin/
 
-RUN unzip crux-2.1.Linux.x86_64.zip
+WORKDIR /data
 
-WORKDIR /crux-2.1.Linux.x86_64/bin/
+CMD ["crux"]
 
 ##################### INSTALLATION END ##########################
 

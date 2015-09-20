@@ -5,56 +5,52 @@
 # Software:         DIA-Umpire
 # Software Version: 1.4256
 # Base Image:       biodocker:latest
-# Build Cmd:        docker build -t biodckr/diaumpire 1.4256/.
+# Build Cmd:        docker build --rm -t biodckr/diaumpire 1.4256/.
 # Pull Cmd:         docker pull biodckr/diaumpire
-# Run Cmd:          docker run biodckr/diaumpire
+# Run Cmd:          docker run --rm biodckr/diaumpire
 #################################################################
 
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ###########################
 
-RUN apt-get install -y \
+USER root
+
+RUN apt-get update && apt-get install -y \
 	openjdk-7-jre \
 	gnuplot 
 
+RUN ZIP=tpp-4.8.0.zip && \
+    mkdir -p /usr/local && \
+    wget https://github.com/BioDocker/software-archive/releases/download/TPP/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /usr/local && \
+    rm /tmp/$ZIP
+
+USER biodocker
+
 # Installing DIA-Umpire
 #ADD DIA-Umpire.tar.gz /
-RUN wget https://github.com/BioDocker/software-archive/releases/download/DIA-Umpire/DIA-Umpire_v1_4256.zip
+RUN ZIP=DIA-Umpire_v1_4256.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/DIA-Umpire/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/DIA-Umpire/ && \
+    rm /tmp/$ZIP
 
-RUN unzip DIA-Umpire_v1_4256.zip -d /DIA-Umpire
+RUN ZIP=comet_binaries_2015010.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/comet/ && \
+    rm /tmp/$ZIP && \
+    chmod 755 /home/biodocker/bin/comet/*.exe && \
+    ln -sv /home/biodocker/bin/comet/*.exe /home/biodocker/bin/
 
-# Installing Comet
-RUN wget https://github.com/BioDocker/software-archive/releases/download/Comet/comet_binaries_2015010.zip
-
-RUN unzip comet_binaries_2015010.zip -d /Comet
-
-RUN mv /Comet/comet.2015010.linux.exe /	
-
-RUN chmod 755 /comet.2015010.linux.exe
-
-#Installing MSGFPlus
-RUN wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/MSGFPlus_9949.zip
-
-RUN unzip MSGFPlus_9949.zip -d /MGFPlus
-
-# Installing TPP
-RUN mkdir -p /usr/
-
-RUN mkdir -p /usr/local/
-
-RUN wget https://github.com/BioDocker/software-archive/releases/download/TPP/tpp-4.8.0.zip
-
-RUN unzip tpp-4.8.0.zip -d /usr/local/
+RUN ZIP=MSGFPlus_9949.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/MSGFPlus/ && \
+    rm /tmp/$ZIP
 
 # Setting the Workspace
 
-WORKDIR /DIA-Umpire/
-
+WORKDIR /data
 
 ##################### INSTALLATION END ##########################
 

@@ -1,44 +1,41 @@
 #################################################################
 # Dockerfile
 #
-# Version:					1
-# Software:					PepNovo+
-# Software Version:	20120423
+# Version:          1
+# Software:         PepNovo+
+# Software Version: 20120423
 # Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/pepnovo 20120423/.
+# Build Cmd:        docker build --rm -t biodckr/pepnovo 20120423/.
 # Pull Cmd:         docker pull biodckr/pepnovo
-# Run Cmd:          docker run biodckr/pepnovo
+# Run Cmd:          docker run --rm biodckr/pepnovo
 #################################################################
 
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ###########################
 
-RUN apt-get install -y \
+USER root
+
+RUN apt-get update && apt-get install -y \
 	build-essential \
 	dos2unix
 
-RUN wget https://github.com/BioDocker/software-archive/releases/download/PepNovo/PepNovo.20120423.zip
+USER biodocker
 
-RUN unzip PepNovo.20120423.zip -d PepNovo/
+RUN ZIP=PepNovo.20120423.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/PepNovo/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/PepNovo/ && \
+    rm /tmp/$ZIP && \
+    cd /home/biodocker/bin/PepNovo/src && \
+    make && \
+    cp PepNovo_bin /home/biodocker/bin/ && \
+    dos2unix /home/biodocker/bin/PepNovo/Models/*.* && \
+    dos2unix /home/biodocker/bin/PepNovo/Models/*/*.* 
 
-WORKDIR /PepNovo/src/
+WORKDIR /data
 
-RUN make
-
-RUN cp PepNovo_bin ../
-
-WORKDIR /PepNovo/
-
-RUN dos2unix Models/*.*
-
-RUN dos2unix Models/*/*
-
-ENTRYPOINT ["./PepNovo_bin"]
+CMD ["PepNovo_bin"]
 
 ##################### INSTALLATION END ##########################
 

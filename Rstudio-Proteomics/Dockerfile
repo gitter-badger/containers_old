@@ -1,4 +1,3 @@
-
 #################################################################
 # Dockerfile
 #
@@ -6,35 +5,32 @@
 # Software:         Rstudio
 # Software Version: ?
 # Base Image:       bioconductor/release_core
-# Build Cmd:        docker build -t biodckr/rstudio .
+# Build Cmd:        docker build --rm -t biodckr/rstudio .
 # Pull Cmd:         docker pull biodckr/rstudio
-# Run Cmd:          docker run biodckr/rstudio
+# Run Cmd:          docker run --rm biodckr/rstudio
 #################################################################
 
 # Set the base image
 FROM bioconductor/release_core
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ###########################
 
+USER root
+
 # nuke cache dirs before installing pkgs; tip from Dirk E fixes broken img
-RUN  rm -f /var/lib/dpkg/available && rm -rf  /var/cache/apt/*
-
-RUN apt-get install -y -t unstable --force-yes libfreetype6
-
-RUN apt-get update && \
+RUN rm -f /var/lib/dpkg/available && rm -rf  /var/cache/apt/* && \
+    apt-get install -y -t unstable --force-yes libfreetype6 && \
+    apt-get update && \
     apt-get install -y -t unstable \
-    libexpat1-dev \
-    libgmp3-dev \
-    libnetcdf-dev \
-    libopenbabel-dev \
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    libgsl0-dev \
-    libgsl0ldbl \
-    openjdk-8-jdk
+     libexpat1-dev \
+     libgmp3-dev \
+     libnetcdf-dev \
+     libopenbabel-dev \
+     libgl1-mesa-dev \
+     libglu1-mesa-dev \
+     libgsl0-dev \
+     libgsl0ldbl \
+     openjdk-8-jdk
 
 RUN R CMD javareconf
 
@@ -50,9 +46,10 @@ ADD http://master.bioconductor.org/todays-date /tmp/
 RUN cd /tmp && \
     ./startx.sh && \
     export DISPLAY=:1.0 && \
-    R -f /tmp/installFromBiocViews.R
+    R -f /tmp/installFromBiocViews.R && \
+    R -e "biocLite(c('rols', 'RforProteomics'))"
 
-RUN R -e "biocLite(c('rols', 'RforProteomics'))"
+USER biodocker
 
 ##################### INSTALLATION END ##########################
 

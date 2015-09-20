@@ -1,34 +1,37 @@
 #################################################################
 # Dockerfile
 #
-# Version:					1
-# Software:					MSAmanda
-# Software Version:	1.0.0.5242
+# Version:          1
+# Software:         MSAmanda
+# Software Version: 1.0.0.5242
 # Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/msamanda 1.0.0.5242/.
+# Build Cmd:        docker build --rm -t biodckr/msamanda 1.0.0.5242/.
 # Pull Cmd:         docker pull biodckr/msamanda
-# Run Cmd:          docker run biodckr/msamanda
+# Run Cmd:          docker run --rm biodckr/msamanda
 #################################################################
 
 # Set the base image
 FROM biodckr/biodocker:latest
 
-# Set noninterative mode
-ENV DEBIAN_FRONTEND noninteractive
-
 ################## BEGIN INSTALLATION ###########################
 
-RUN apt-get install mono-complete -y
+USER root
 
-RUN wget https://github.com/BioDocker/software-archive/releases/download/MSAmanda/MSAmanda_Standalone_LinuxMac_1.0.0.5243.zip
+RUN apt-get update && apt-get install mono-complete -y
 
-RUN unzip MSAmanda_Standalone_LinuxMac_1.0.0.5243.zip
+USER biodocker
 
-RUN chmod 755 /MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe
+RUN ZIP=MSAmanda_Standalone_LinuxMac_1.0.0.5243.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/MSAmanda/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin && \
+    rm /tmp/$ZIP && \
+    chmod 755 /home/biodocker/bin/MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe && \
+    bash -c 'echo -e "#!/bin/bash\nmono /home/biodocker/bin/MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe $@" > /home/biodocker/bin/MSAmanda' && \
+    chmod +x /home/biodocker/bin/MSAmanda
 
-WORKDIR /MSAmanda_Standalone_LinuxMac_1.0.0.5243/
+WORKDIR /data
 
-ENTRYPOINT ["mono","./MSAmanda.exe"]
+CMD ["MSAmanda"]
 
 ##################### INSTALLATION END ##########################
 
